@@ -8,6 +8,13 @@ class MemorySquare extends Component {
     position: this.props.position
   }
 
+  squareClicked = (e) => {
+    const name = e.target.name
+    this.setState({
+      clicked: true
+    })
+  }
+
   render() {
     const styles = {
       coloredSquare: {
@@ -30,8 +37,8 @@ class MemorySquare extends Component {
      
     }
     return (
-      <div style={styles.container}>
-       <div style={styles.coloredSquare}></div>
+      <div  style={styles.container}>
+        <div name="clicked" style={styles.coloredSquare} onClick={this.squareClicked}></div>
       </div>
     )
   }

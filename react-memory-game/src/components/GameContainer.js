@@ -6,6 +6,12 @@ class GameContainer extends Component {
     return Math.floor(Math.random() * 800);
   }
 
+  squareClicked = () => {
+    this.setState({
+      position: 'True'
+    })
+  }
+
   state = {
     squares: [
       {hex: "#D3D3D3", position: this.evaluatePosition()},
