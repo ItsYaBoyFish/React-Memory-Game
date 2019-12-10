@@ -3,7 +3,7 @@ import React from "react";
 function Navbar() {
   return (
     <div style={navStyles.navbar}>
-      <div style={navStyles.brand}>
+      {/* <div style={navStyles.brand}>
         <h1>Memory Game</h1>
       </div>
       <div className={navStyles.instructions}>
@@ -11,7 +11,7 @@ function Navbar() {
       </div>
       <div className={navStyles.score}>
         <h3>Score: 1 || Top Score: 3</h3>
-      </div>
+      </div> */}
     </div>
   )
 
