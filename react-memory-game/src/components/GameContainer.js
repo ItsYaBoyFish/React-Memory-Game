@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import MemorySquare from "./MemorySquare";
+import StatusPanel from "./StatusPanel"
 import css from "../GameContainer.css"
 class GameContainer extends Component {
   evaluatePosition = () => {
@@ -51,18 +52,17 @@ class GameContainer extends Component {
         message: "You Guessed Correctly"
       })
     }
-  //  squares[id].clicked = true
-  //   this.setState({
-  //     squares
-  //   })
   }
 
   render() {
     return (
-      <div sytle={css} className="container">
-        {this.state.squares.sort((a, b) => {return a.position - b.position}).map((square, index) => (
-          <MemorySquare key={index} id={index} squareClicked={this.squareClicked} position={square.position} squareColor={square.hex}/>
-        ))}
+      <div style={css} className="container">
+        <StatusPanel/>
+        <div className="squareContainer">
+          {this.state.squares.sort((a, b) => {return a.position - b.position}).map((square, index) => (
+            <MemorySquare key={index} id={index} squareClicked={this.squareClicked} position={square.position} squareColor={square.hex}/>
+          ))}
+        </div>
       </div>
     )
   }
