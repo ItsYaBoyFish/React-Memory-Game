@@ -3,16 +3,7 @@ import React, { Component } from 'react'
 class MemorySquare extends Component {
 
   state = {
-    color: this.props.squareColor,
-    clicked: false,
-    position: this.props.position
-  }
-
-  squareClicked = (e) => {
-    const name = e.target.name
-    this.setState({
-      clicked: true
-    })
+    id: this.props.id
   }
 
   render() {
@@ -23,22 +14,21 @@ class MemorySquare extends Component {
         marginTop: "7.5px",
         height: "180px",
         width: "180px",
-        background: this.state.color,
+        background: this.props.squareColor,
         borderRadius: "10px",
       },
       container: {
-        // // margin: "10px",
-        // textAlign: "center",
-        // height: "195px",
-        // width: "195px",
-        // border: `solid 1px ${this.state.color}`,
-        // borderRadius: "10px"
+        // margin: "10px",
+        textAlign: "center",
+        height: "195px",
+        width: "195px",
+        borderRadius: "10px"
       }
      
     }
     return (
       <div  style={styles.container}>
-        <div name="clicked" style={styles.coloredSquare} onClick={this.squareClicked}></div>
+        <div style={styles.coloredSquare} onClick={() => {this.props.squareClicked(this.state.id)}}></div>
       </div>
     )
   }
