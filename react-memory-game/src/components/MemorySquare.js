@@ -28,7 +28,7 @@ class MemorySquare extends Component {
     }
     return (
       <div  style={styles.container}>
-        <div style={styles.coloredSquare} onClick={() => {this.props.squareClicked(this.state.id)}}></div>
+        <div style={styles.coloredSquare} onClick={() => {this.props.squareClicked(this.props.id)}}></div>
       </div>
     )
   }
