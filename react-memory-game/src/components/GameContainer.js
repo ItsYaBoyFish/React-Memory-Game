@@ -31,8 +31,7 @@ class GameContainer extends Component {
       {id: 11, hex: "#909090", position: this.evaluatePosition(), clicked: false}
     ],
     score: 0,
-    topScore: parseInt(sessionStorage.getItem('topScore')) || 0,
-    message: ""
+    topScore: parseInt(sessionStorage.getItem('topScore')) || 0
   }
 
   squareClicked = (id) => {
@@ -41,7 +40,8 @@ class GameContainer extends Component {
     var topScore = this.state.topScore
     // console.log(squares)
     if (squares[id].clicked === true) {
-      alert('Game Over!')
+      
+      alert(`Game Over: You Guessed Incorrectly!`)
 
       // setting the TopScore value to sessionStorage
       sessionStorage.setItem('topScore', this.state.topScore)
@@ -69,7 +69,6 @@ class GameContainer extends Component {
       this.setState({
         squares,
         score,
-        message: "You Guessed Correctly",
         topScore: topScore
       })
     }
@@ -78,7 +77,7 @@ class GameContainer extends Component {
   render() {
     return (
       <div style={css} className="container">
-        <StatusPanel/>
+        <StatusPanel score={this.state.score} topScore={this.state.topScore}/>
         <div className="squareContainer">
           {this.state.squares.sort((a, b) => {return a.position - b.position}).map((square, index) => (
             <MemorySquare key={index} id={index} squareClicked={this.squareClicked} position={square.position} squareColor={square.hex}/>
