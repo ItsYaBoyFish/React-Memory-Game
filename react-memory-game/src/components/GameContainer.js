@@ -17,18 +17,18 @@ class GameContainer extends Component {
 
   state = {
     squares: [
-      {id: 0, hex: "red", position: this.evaluatePosition(), clicked: false},
-      {id: 1, hex: "green", position: this.evaluatePosition(), clicked: false},
-      {id: 2, hex: "yellow", position: this.evaluatePosition(), clicked: false},
-      {id: 3, hex: "orange", position: this.evaluatePosition(), clicked: false},
-      {id: 4, hex: "blue", position: this.evaluatePosition(), clicked: false},
-      {id: 5, hex: "#B8B8B8", position: this.evaluatePosition(), clicked: false},
-      {id: 6, hex: "#B0B0B0", position: this.evaluatePosition(), clicked: false},
-      {id: 7, hex: "#A9A9A9", position: this.evaluatePosition(), clicked: false},
-      {id: 8, hex: "#A8A8A8", position: this.evaluatePosition(), clicked: false},
-      {id: 9, hex: "#A0A0A0", position: this.evaluatePosition(), clicked: false},
-      {id: 10, hex: "#989898", position: this.evaluatePosition(), clicked: false},
-      {id: 11, hex: "#909090", position: this.evaluatePosition(), clicked: false}
+      {id: 0, hex: "#5d1451", position: this.evaluatePosition(), clicked: false},
+      {id: 1, hex: "#2f416d", position: this.evaluatePosition(), clicked: false},
+      {id: 2, hex: "#14868c", position: this.evaluatePosition(), clicked: false},
+      {id: 3, hex: "#94ceca", position: this.evaluatePosition(), clicked: false},
+      {id: 4, hex: "#1089ff", position: this.evaluatePosition(), clicked: false},
+      {id: 5, hex: "#121b74", position: this.evaluatePosition(), clicked: false},
+      {id: 6, hex: "#b0deff", position: this.evaluatePosition(), clicked: false},
+      {id: 7, hex: "#5ca0d3", position: this.evaluatePosition(), clicked: false},
+      {id: 8, hex: "#142d4c", position: this.evaluatePosition(), clicked: false},
+      {id: 9, hex: "#00028c", position: this.evaluatePosition(), clicked: false},
+      {id: 10, hex: "#a6e3e9", position: this.evaluatePosition(), clicked: false},
+      {id: 11, hex: "#cbf1f5", position: this.evaluatePosition(), clicked: false}
     ],
     score: 0,
     topScore: parseInt(sessionStorage.getItem('topScore')) || 0
