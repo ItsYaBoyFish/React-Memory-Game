@@ -3,8 +3,16 @@ import MemorySquare from "./MemorySquare";
 import StatusPanel from "./StatusPanel"
 import css from "../GameContainer.css"
 class GameContainer extends Component {
+  // Generates a random number for each
   evaluatePosition = () => {
     return Math.floor(Math.random() * 800);
+  }
+
+  resetGame = (squaresArr) => {
+    window.location.reload(false)
+    squaresArr.map(square => {
+      return square.position = this.evaluatePosition();
+    })
   }
 
   state = {
@@ -23,33 +31,46 @@ class GameContainer extends Component {
       {id: 11, hex: "#909090", position: this.evaluatePosition(), clicked: false}
     ],
     score: 0,
-    topScore: 0,
+    topScore: parseInt(sessionStorage.getItem('topScore')) || 0,
     message: ""
   }
 
   squareClicked = (id) => {
     const squares = this.state.squares
     var score = this.state.score
+    var topScore = this.state.topScore
     // console.log(squares)
     if (squares[id].clicked === true) {
       alert('Game Over!')
-      score = 0
-      squares[id].clicked = false
-      this.setState({
-        score: score,
-        squares: squares,
-        message: "You Guessed Incorrectly"
-      })
+
+      // setting the TopScore value to sessionStorage
+      sessionStorage.setItem('topScore', this.state.topScore)
+
+      // Resetting all clicked values to false.
+      this.resetGame()
+
     } else {
+      // Set that squares clicked state to true.
       squares[id].clicked = true
+
+      // Increment the score by 1
       score = score + 1
+
+      // If the score is greater than or equal to score set topScore equal to score.
+      if (score >= topScore) {
+        topScore = score
+      }
+      // Updating the position of the squares to rearange the tiles.
       squares.map((square => {
-        return square.position = Math.floor(Math.random() * 800);
+        return square.position = this.evaluatePosition();
         })).sort(((a,b) => {return a.position - b.position}))
+
+        // Setting the updated squares array back to state, along with the score and message.
       this.setState({
         squares,
         score,
-        message: "You Guessed Correctly"
+        message: "You Guessed Correctly",
+        topScore: topScore
       })
     }
   }
